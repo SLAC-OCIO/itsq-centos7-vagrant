@@ -32,7 +32,7 @@ Vagrant.configure(2) do |config|
     config.hostmanager.ignore_private_ip = false
     config.hostmanager.include_offline = true
  #if Using the lamp stack, uncomment the 
-    config.vm.define "project" do |node|
+    config.vm.define "=SLAC DevBox=" do |node|
         # dns name in VM and Host
         node.vm.hostname = 'www.project1.dev'
         # set a dedicated ip
@@ -46,8 +46,8 @@ Vagrant.configure(2) do |config|
 
    # config.omnibus.chef_version = :latest
 
-    config.vm.synced_folder ".", "/vagrant", :owner => "vagrant", :group => "vagrant"
-    
+    config.vm.synced_folder ".", "/home/vagrant", :owner => "vagrant", :group => "vagrant"
+    #config.vm.synced_folder "./app", "/var/app", :owner => "vagrant", :group => "users"
 
     # If true, then any SSH connections made will enable agent forwarding.
     # Default value: false
@@ -56,7 +56,10 @@ Vagrant.configure(2) do |config|
     # chef solo part
     config.vm.provision :chef_zero do |chef|
     chef.cookbooks_path = ["chef/cookbooks/"]
-        #if you wish to utilize lamp stack uncomment lamp, nginx and php-fpm
+        #--------------------------------------------------------------------
+        #if you wish to utilize lamp stack uncomment lamp, nginx and php-fpm 
+        #and comment out meteor related instructions
+        #--------------------------------------------------------------------
         #chef.add_recipe "lamp"
         #chef.add_recipe "php-fpm"
         chef.add_recipe "nodejs::install_from_package"

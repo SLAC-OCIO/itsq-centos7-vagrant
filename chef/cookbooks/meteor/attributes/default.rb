@@ -33,6 +33,6 @@ default['meteor']['install_url'] = 'https://install.meteor.com'
 #
 
 default['meteor']['create_meteor_user'] = true
-default['meteor']['meteor_homedir'] = "/vagrant/DC-Sensors" # set to "/vagrant" if you're using Vagrant; set to nil to skip creating home dir
+default['meteor']['meteor_homedir'] = "/var/app" # set to "/vagrant" if you're using Vagrant; set to nil to skip creating home dir
 default['meteor']['meteor_uid'] = 1000# set to nil to leave the uid alone, set to a number to set the uid
 default['meteor']['meteor_gid'] = 1000# set to nil to leave the gid alone, set to a number to set the gid
